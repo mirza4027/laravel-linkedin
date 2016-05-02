@@ -7,6 +7,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -49,7 +52,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -61,12 +65,28 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $request->session()->put('signUpData',$request->input());
+        return view('auth.register_step_2');
+        
+//        return User::create([
+//            'fname' => $data['fname'],
+//            'lname' => $data['lname'],
+//            'email' => $data['email'],
+//            'password' => bcrypt($data['password']),
+//        ]);
+    }
+    
+    private function sign_up_step_2() {
+//        if(request()->session()->has('signUpData')) {
+//            echo 'session contains data';
+//        } else {
+//            echo 'session does not contain data';
+//        }
+       // view
+       
+//        print_r(request()->session()->get('signUpData'));
+//        @die;
     }
 }

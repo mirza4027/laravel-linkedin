@@ -5,22 +5,26 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Register Step 2</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">First Name</label>
-
+                        <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Country</label>
+                                    
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="fname" value="{{ old('fname') }}">
+                                <select name="country" class="form-control">
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="China">China</option>
+                                    <option value="USA">USA</option>
+                                </select>
 
-                                @if ($errors->has('name'))
+<!--                                @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
-                                @endif
+                                @endif-->
                             </div>
                         </div>
                         

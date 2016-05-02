@@ -16,9 +16,14 @@ class CreateUsersInfoTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('country');
+            $table->string('postal_code');
             $table->string('title');
-            $table->string('company')->unique();
+            $table->string('company');
+            $table->integer('currently');
+            $table->tinyInteger('self_emp');
             $table->string('profile_picture');
+            $table->date('start_at');
+            $table->date('end_at');
             $table->timestamps();
         });
     }

@@ -26,4 +26,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function sign_up_step_1(Request $request) {
+        echo 1;
+        print_r($request->all());
+        @die;
+    }
 }
