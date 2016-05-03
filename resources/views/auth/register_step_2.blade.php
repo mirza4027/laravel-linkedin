@@ -95,6 +95,13 @@
                                 <input class="check_box" type="checkbox" name="self_employee" value="1">I am self-employed
                             </div>
                             
+                        </div>
+                        <div class="form-group{{ $errors->has('self_emp') ? ' has-error' : '' }}">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-6 radio">
+                                <input class="check_box" type="checkbox" name="self_employee" value="1">I am self-employed
+                            </div>
+                            
                         </div>    
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
